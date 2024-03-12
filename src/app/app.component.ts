@@ -1,10 +1,8 @@
-import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {COURSES} from '../db-data';
+import {Component, OnInit, inject} from '@angular/core';
 import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
-import {HighlightedDirective} from './directives/highlighted.directive';
 import {Observable} from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -12,18 +10,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  coursesService = inject (CoursesService);
 
   courses$: Observable<Course[]>;
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor() {}
 
   ngOnInit() {
-    const params = new HttpParams() //build in method
-      .set('page', '1')
-      .set('pageSize', '10')      //dev tools -> XHR -> http://localhost:4200/api/courses?page=1&pageSize=10     
-        //val => console.log(val)
-        this.courses$ = this.http.get<Course[]>('/api/courses', {params})      
+    //console.log(this.coursesService)    
+    this.courses$ = this.coursesService.loadCourses()      
   }
 }
