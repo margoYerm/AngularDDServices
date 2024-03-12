@@ -21,31 +21,20 @@ import {CourseImageComponent} from '../course-image/course-image.component';
 })
 export class CourseCardComponent implements OnInit {
 
-    @Input()
-    course: Course;
+    @Input() course: Course;
 
-    @Input()
-    cardIndex: number;
+    @Input() cardIndex: number;
 
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
+    constructor() {}
 
-    constructor() {
-
-    }
-
-    ngOnInit() {
-
-    }
-
+    ngOnInit() {}
 
     onSaveClicked(description:string) {
-
         this.courseEmitter.emit({...this.course, description});
-
     }
-
 
 
 

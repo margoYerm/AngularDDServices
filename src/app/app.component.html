@@ -17,7 +17,8 @@
 
   <div class="courses" *ngIf="courses$ | async as courses">
     <course-card *ngFor="let course of courses"
-                 [course]="course">
+                 [course]="course"
+                 (courseChanged)="saveValue($event)">
 
       <course-image [src]="course.iconUrl"></course-image>
     </course-card>
