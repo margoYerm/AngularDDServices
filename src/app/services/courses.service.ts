@@ -3,14 +3,12 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../model/course';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class CoursesService {
   http = inject(HttpClient)
 
-  constructor() { }
+  constructor(/*private http: HttpClient*/) { }
 
   loadCourses(): Observable<Course[]> {
     const params = new HttpParams() //build in method
