@@ -16,13 +16,13 @@ export const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVI
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [
-    /*{
+  /*providers: [
+    {
       provide: CoursesService,
       useClass: CoursesService,
-    }*/
-    CoursesService,
-  ]
+    }
+    //CoursesService,
+  ]*/
 })
 export class AppComponent implements OnInit {  
 

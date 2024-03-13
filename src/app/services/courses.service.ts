@@ -4,16 +4,20 @@ import { Observable } from 'rxjs';
 import { Course } from '../model/course';
 
 let counter = 0;
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+  //useFactory: (http) => new CoursesService(http),
+  //deps: [HttpClient]
+  useClass: CoursesService,
+})
 
 export class CoursesService {
-  http = inject(HttpClient);
+  //http = inject(HttpClient);
   id: number;
 
-  constructor() {
+  constructor(private http: HttpClient ) {
     counter++;
-    this.id = counter;
-    //console.log("Create CourseService", this.id)
+    this.id = counter;    
    }
 
   loadCourses(): Observable<Course[]> {
