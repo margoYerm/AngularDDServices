@@ -4,6 +4,7 @@ import {CourseCardComponent} from './course-card/course-card.component';
 import {Observable} from 'rxjs';
 import { CoursesService } from './services/courses.service';
 import { HttpClient } from '@angular/common/http';
+import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
 
 /*function coursesServiceProvider(http: HttpClient): CoursesService {
   return new CoursesService(/*http*//*);
@@ -16,19 +17,23 @@ export const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVI
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  /*providers: [
+  providers: [
     {
-      provide: CoursesService,
-      useClass: CoursesService,
-    }
-    //CoursesService,
-  ]*/
+      provide: CONFIG_TOKEN,
+      //useFactory: () => APP_CONFIG, //or next line
+      useValue: APP_CONFIG
+    }    
+  ]
 })
 export class AppComponent implements OnInit {  
 
   courses$: Observable<Course[]>;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(
+    private coursesService: CoursesService,
+    @Inject(CONFIG_TOKEN) private config: AppConfig) {
+      console.log(config)
+    }
 
   ngOnInit() {
     //console.log(this.coursesService)    
