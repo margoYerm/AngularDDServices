@@ -1,4 +1,4 @@
-import {Component, Inject, InjectionToken, OnInit, inject} from '@angular/core';
+import {Component, Inject, InjectionToken, OnInit, Optional, inject} from '@angular/core';
 import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
 import {Observable} from 'rxjs';
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   courses$: Observable<Course[]>;
 
   constructor(
-    private coursesService: CoursesService,
+    @Optional() private coursesService: CoursesService,
     @Inject(CONFIG_TOKEN) private config: AppConfig) {
       console.log(config)
     }
