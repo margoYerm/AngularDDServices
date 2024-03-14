@@ -9,6 +9,7 @@ import {
     OnInit,
     Output,
     QueryList,
+    Self,
     ViewEncapsulation,
     inject
 } from '@angular/core';
@@ -23,7 +24,7 @@ import { CoursesService } from '../services/courses.service';
     providers: [CoursesService]
 })
 export class CourseCardComponent implements OnInit {
-    courseService = inject(CoursesService)
+    //courseService = inject(CoursesService)
 
     @Input() course: Course;
 
@@ -32,7 +33,7 @@ export class CourseCardComponent implements OnInit {
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-    constructor() {}
+    constructor(@Self() private coursesService: CoursesService ) {}
 
     ngOnInit() {}
 
