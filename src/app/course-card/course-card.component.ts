@@ -10,6 +10,7 @@ import {
     Output,
     QueryList,
     Self,
+    SkipSelf,
     ViewEncapsulation,
     inject
 } from '@angular/core';
@@ -33,7 +34,7 @@ export class CourseCardComponent implements OnInit {
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-    constructor(@Self() private coursesService: CoursesService ) {}
+    constructor(@SkipSelf() private coursesService: CoursesService ) {}
 
     ngOnInit() {}
 
