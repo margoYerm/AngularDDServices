@@ -34,7 +34,7 @@ export class CourseCardComponent implements OnInit {
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-    constructor(@SkipSelf() private coursesService: CoursesService ) {}
+    constructor(private coursesService: CoursesService ) {}
 
     ngOnInit() {}
 
