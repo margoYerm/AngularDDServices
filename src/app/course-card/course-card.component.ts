@@ -1,6 +1,7 @@
 import {
     AfterContentInit,
     AfterViewInit,
+    ChangeDetectionStrategy,
     Component,
     ContentChildren,
     ElementRef,
@@ -22,7 +23,8 @@ import { CoursesService } from '../services/courses.service';
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-    providers: [CoursesService]
+    providers: [CoursesService],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseCardComponent implements OnInit {
     //courseService = inject(CoursesService)

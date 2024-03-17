@@ -13,9 +13,9 @@ import { COURSES } from 'src/db-data';
   styleUrls: ['./app.component.css'],  
 })
 
-export class AppComponent implements OnInit {  
+export class AppComponent implements OnInit {
 
-  courses=COURSES
+  courses = COURSES;
 
   constructor(
     private coursesService: CoursesService,
@@ -29,4 +29,12 @@ export class AppComponent implements OnInit {
         () => console.log('Course Saved!')
       )
   }
+  
+  onEditCourse() {
+    const course = this.courses[0];
+    const newCourse = {...course};
+    newCourse.description = 'New value!';
+    this.courses[0] = newCourse;
+    //this.courses[0].description = 'New value!'; // it's not work
+  }  
 }
