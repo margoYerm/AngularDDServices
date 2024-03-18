@@ -1,4 +1,3 @@
-
 ##  Angular Core Deep Dive (Video Course)
 
 This repository contains the code of the [Angular Core Deep Dive](https://angular-university.io/course/angular-course).
@@ -14,29 +13,13 @@ IMPORTANT: Please use Node 18 (Long Term Support version). Note that Node 18 is 
 
 # Installing the Angular CLI
 
-With the following command the angular-cli will be installed globally in your machine:
-
     npm install -g @angular/cli
 
 
 # How To install this repository
 
-We can install the master branch using the following commands:
-
-    git clone https://github.com/angular-university/angular-course.git
-
-This repository is made of several separate npm modules, that are installable separately. For example, to run the au-input module, we can do the following:
-
-    cd angular-course
     npm install
 
-Its also possible to install the modules as usual using npm:
-
-    npm install
-
-NPM 5 or above has the big advantage that if you use it you will be installing the exact same dependencies than I installed in my machine, so you wont run into issues caused by semantic versioning updates.
-
-This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.
 
 # To Run the Development Backend Server
 
@@ -73,6 +56,22 @@ We can checkout the remote branch and start tracking it with a local branch that
 It's also possible to download a ZIP file for a given branch,  using the branch dropdown on this page on the top left, and then selecting the Clone or Download / Download as ZIP button.
 
 # Other Courses
+
+# [How to learn Angular For Beginners](https://blog.angular-university.io/angular-2-tutorial-list/)
+    [Angular Core Deep Dive](https://angular-university.io/course/angular-course)
+    [RxJs In Practice](https://angular-university.io/course/rxjs-course?ref=blog.angular-university.io)
+    [Angular Forms In Depth](https://angular-university.io/course/angular-forms-course)
+    [Angular Router In Depth](https://angular-university.io/course/angular-router-course)
+    [Reactive Design Patterns](https://angular-university.io/course/reactive-angular-course?ref=blog.angular-university.io)
+    [NgRx and NgRx Data](https://angular-university.io/course/ngrx-course?ref=blog.angular-university.io)
+    [Angular Testing](https://angular-university.io/course/angular-testing-course?ref=blog.angular-university.io)
+    [Angular Material](https://angular-university.io/course/angular-material-course?ref=blog.angular-university.io)
+    [Angular Security](https://angular-university.io/course/angular-security-course?ref=blog.angular-university.io)
+    [Angular Universal, SSR](https://angular-university.io/course/angular-universal-course?ref=blog.angular-university.io)
+    [Progressive Web Apps](https://angular-university.io/course/angular-pwa-course?ref=blog.angular-university.io)
+    [REST with NestJs and MongoDB](https://angular-university.io/course/nestjs-course?ref=blog.angular-university.io)
+    [Firebase & AngularFire](https://angular-university.io/course/angularfire-course?ref=blog.angular-university.io)
+    [Online Payments](https://angular-university.io/course/stripe-course?ref=blog.angular-university.io)
 
 # RxJs In Practice Course
 
