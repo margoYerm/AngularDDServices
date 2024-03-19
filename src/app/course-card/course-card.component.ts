@@ -1,6 +1,7 @@
 import {
     AfterContentInit,
     AfterViewInit,
+    Attribute,
     ChangeDetectionStrategy,
     Component,
     ContentChildren,
@@ -30,13 +31,18 @@ export class CourseCardComponent implements OnInit {
     //courseService = inject(CoursesService)
 
     @Input() course: Course;
-
     @Input() cardIndex: number;
+    //@Input() type: string;
 
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-    constructor(private coursesService: CoursesService ) {}
+    constructor(
+        private coursesService: CoursesService, 
+        @Attribute('type') private type: string 
+    ) {
+        console.log(type); //10 x beginner
+    }
 
     ngOnInit() {}
 
