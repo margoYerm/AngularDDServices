@@ -9,6 +9,7 @@ import {
     ElementRef,
     EventEmitter,
     Input,
+    OnDestroy,
     OnInit,
     Output,
     QueryList,
@@ -25,28 +26,30 @@ import { CoursesService } from '../services/courses.service';
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-    providers: [CoursesService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    providers: [CoursesService]
 })
-export class CourseCardComponent implements OnInit {
+export class CourseCardComponent implements OnInit, OnDestroy {
     //courseService = inject(CoursesService)
 
     @Input() course: Course;
-    @Input() cardIndex: number;
-    //@Input() type: string;
+    @Input() cardIndex: number;    
 
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
     constructor(
         private coursesService: CoursesService, 
-        @Attribute('type') private type: string,
-        private cd: ChangeDetectorRef
-    ) {
-        console.log(type); //10 x beginner
+        @Attribute('type') private type: string,        
+    ) {console.log('constructor called', this.course)}
+    
+
+    ngOnInit() {
+        console.log('ngOnInit called', this.course)
     }
 
-    ngOnInit() {}
+    ngOnDestroy(): void {
+        console.log('ngOnDestroy called', this.course);
+    }
 
     onSaveClicked(description: string) {
         this.courseEmitter.emit({...this.course, description});
