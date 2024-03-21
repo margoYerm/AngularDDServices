@@ -1,6 +1,7 @@
 import {
     AfterContentChecked,
     AfterContentInit,
+    AfterViewChecked,
     AfterViewInit,
     Attribute,
     ChangeDetectionStrategy,
@@ -32,7 +33,7 @@ import { CoursesService } from '../services/courses.service';
     providers: [CoursesService]
 })
 export class CourseCardComponent implements OnInit, OnDestroy, 
-OnChanges, AfterContentChecked {
+OnChanges, AfterContentChecked, AfterViewChecked {
     //courseService = inject(CoursesService)
 
     @Input() course: Course;
@@ -45,23 +46,27 @@ OnChanges, AfterContentChecked {
         private coursesService: CoursesService, 
         @Attribute('type') private type: string,        
     ) {console.log('constructor called', this.course)}
-    
+        
     ngOnInit() {
         console.log('ngOnInit called', this.course)
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(changes: SimpleChanges) {
         console.log('ngOnChanges called', changes)
     }
 
-    ngAfterContentChecked(): void {
+    ngAfterContentChecked() {
         console.log('ngAfterContentChecked called');
         this.course.description = 'ngAfterContentChecked';
         this.course.category = 'ADVANCED';
         //this.course.iconUrl = '';
     }
 
-    ngOnDestroy(): void {
+    ngAfterViewChecked() {
+        console.log('ngAfterViewChecked called');
+    }
+
+    ngOnDestroy() {
         console.log('ngOnDestroy called', this.course);
     }
 
