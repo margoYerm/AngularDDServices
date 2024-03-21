@@ -38,12 +38,13 @@ export class AppComponent implements OnInit {
       )
   }
   
-  onEditCourse() {
-    /*const course = this.courses$[0];
-    const newCourse = {...course};
-    newCourse.description = 'New value!';
-    this.courses$[0] = newCourse;
-    //this.courses[0].description = 'New value!'; // it's not work*/
-    this.courses = [undefined];
+  onEditCourse() {    
+    //this.courses[0].description = 'ngOnChanges'; //It's not working because @Input()course reacted to the changing course, not course.property
+    const course = this.courses[0];
+    const newCourse = {
+      ...course,
+      description: 'ngOnChanges'
+    }
+    this.courses[0] = newCourse;
   }  
 }

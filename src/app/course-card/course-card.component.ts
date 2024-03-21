@@ -9,11 +9,13 @@ import {
     ElementRef,
     EventEmitter,
     Input,
+    OnChanges,
     OnDestroy,
     OnInit,
     Output,
     QueryList,
     Self,
+    SimpleChanges,
     SkipSelf,
     ViewEncapsulation,
     inject
@@ -28,7 +30,7 @@ import { CoursesService } from '../services/courses.service';
     styleUrls: ['./course-card.component.css'],
     providers: [CoursesService]
 })
-export class CourseCardComponent implements OnInit, OnDestroy {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges {
     //courseService = inject(CoursesService)
 
     @Input() course: Course;
@@ -45,6 +47,10 @@ export class CourseCardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         console.log('ngOnInit called', this.course)
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log('ngOnChanges called', changes)
     }
 
     ngOnDestroy(): void {
