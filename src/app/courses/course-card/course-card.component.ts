@@ -32,8 +32,7 @@ import { CoursesService } from '../../services/courses.service';
     styleUrls: ['./course-card.component.css'],
     providers: [CoursesService]
 })
-export class CourseCardComponent implements OnInit, OnDestroy, 
-OnChanges, AfterContentChecked, AfterViewChecked {
+export class CourseCardComponent implements OnInit {
     //courseService = inject(CoursesService)
 
     @Input() course: Course;
@@ -45,30 +44,9 @@ OnChanges, AfterContentChecked, AfterViewChecked {
     constructor(
         private coursesService: CoursesService, 
         @Attribute('type') private type: string,        
-    ) {console.log('constructor called', this.course)}
+    ) {}
         
-    ngOnInit() {
-        console.log('ngOnInit called', this.course)
-    }
-
-    ngOnChanges(changes: SimpleChanges) {
-        console.log('ngOnChanges called', changes)
-    }
-
-    ngAfterContentChecked() {
-        console.log('ngAfterContentChecked called');
-        this.course.description = 'ngAfterContentChecked';
-        this.course.category = 'ADVANCED';
-        //this.course.iconUrl = '';
-    }
-
-    ngAfterViewChecked() {
-        console.log('ngAfterViewChecked called');
-    }
-
-    ngOnDestroy() {
-        console.log('ngOnDestroy called', this.course);
-    }
+    ngOnInit() {}    
 
     onSaveClicked(description: string) {
         this.courseEmitter.emit({...this.course, description});
