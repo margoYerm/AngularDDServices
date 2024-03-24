@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, InjectionToken, OnInit, Optional, inject} from '@angular/core';
 import {Course} from './model/course';
-import {CourseCardComponent} from './course-card/course-card.component';
+import {CourseCardComponent} from './courses/course-card/course-card.component';
 import {Observable} from 'rxjs';
 import { CoursesService } from './services/courses.service';
 import { HttpClient } from '@angular/common/http';
