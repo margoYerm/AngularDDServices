@@ -25,7 +25,8 @@
         Welcome to the Angular Deep Dive Course
     </h4>
 
-    <course-card *ngFor="let course of ( courses | filterByCategory: 'BEGINNER')"
+    <!-- <course-card *ngFor="let course of ( courses | filterByCategory: 'BEGINNER')" -->
+    <course-card *ngFor="let course of courses "
                  [course]="course"                
                  (courseChanged)="saveValue($event)">                    
       <course-image [src]="course.iconUrl"></course-image>

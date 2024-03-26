@@ -5,7 +5,8 @@
   </div>
 
   <ng-content select="course-image"
-              *ngIf="course.iconUrl"></ng-content>
+              *ngIf="course.iconUrl">
+  </ng-content>
 
   <div class="course-description">
 
@@ -15,7 +16,7 @@
 
   </div>
 
-  <div class="course-category" [ngSwitch]="course.category">
+  <!-- <div class="course-category" [ngSwitch]="course.category">
 
     <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>
 
@@ -23,14 +24,21 @@
 
     <div class="category" *ngSwitchCase="'ADVANCED'">Advanced</div>
 
+  </div> -->
+  <div class="course-category">
+
+   <div class="category" i18n>
+    {
+      course.category,
+      select, 
+      BEGINNER {Beginner}
+      INTERMEDIATE {Intermediate}
+      ADVANCED {Advanced}
+    }
+   </div>
+
   </div>
 
   <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
 
 </div>
-
-
-
-
-
-
