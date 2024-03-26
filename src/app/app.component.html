@@ -5,8 +5,11 @@
 
 </div>
 
-<div class="demo">
-  <button (click)="onEditCourse()">Edit course</button>
+<div class="demo"> 
+  <h4 i18n="welcome message | Greet the user a greeting at the beginning 
+    of the course@@welcomeMessage"
+  >Welcome to the Angular Deep Dive Course</h4>
+  <button (click)="onEditCourse()" i18n>Edit course</button>
 </div>
 
 <!-- *ngIf="(courses$ | async) as courses" -->
