@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, InjectionToken, OnInit, Optional, inject} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, InjectionToken, Injector, OnInit, Optional, inject} from '@angular/core';
 import {Course} from './model/course';
 import {CourseCardComponent} from './courses/course-card/course-card.component';
 import {Observable} from 'rxjs';
@@ -6,6 +6,8 @@ import { CoursesService } from './services/courses.service';
 import { HttpClient } from '@angular/common/http';
 import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
 import { COURSES } from 'src/db-data';
+import { createCustomElement } from '@angular/elements';
+import { CourseTitleComponent } from './course-title/course-title.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private coursesService: CoursesService,
-    @Inject(CONFIG_TOKEN) private config: AppConfig
+    @Inject(CONFIG_TOKEN) private config: AppConfig,
+    private injector: Injector
   ) {}
 
   ngOnInit() {
@@ -29,7 +32,11 @@ export class AppComponent implements OnInit {
     /*this.coursesService.loadCourses() 
       .subscribe(courses => {
         this.courses = courses;        
-      })*/      
+      })*/ 
+    const htmlElement = createCustomElement(
+      CourseTitleComponent, {injector: this.injector}
+      )  
+    customElements.define('course-title', htmlElement)   
   }  
 
   saveValue(course: Course) {

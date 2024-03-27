@@ -7,10 +7,12 @@ import { HighlightedDirective } from './courses/directives/highlighted.directive
 import { NgxUnlessDirective } from './courses/directives/ngx-unless.directive';
 import {HttpClientModule} from '@angular/common/http';
 import { CoursesModule } from './courses/courses.module';
+import { CourseTitleComponent } from './course-title/course-title.component';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
+    CourseTitleComponent,    
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { CoursesModule } from './courses/courses.module';
     CoursesModule,
   ],  
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //entryComponents: []
 })
 export class AppModule { }
