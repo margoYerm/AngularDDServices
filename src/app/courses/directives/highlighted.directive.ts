@@ -3,7 +3,8 @@ import { CoursesService } from '../../services/courses.service';
 
 @Directive({
     selector: '[highlighted]',
-    exportAs: 'hl'
+    exportAs: 'hl', 
+    standalone: true
 })
 export class HighlightedDirective {
 

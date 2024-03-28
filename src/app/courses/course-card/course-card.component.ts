@@ -1,36 +1,28 @@
-import {
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewChecked,
-    AfterViewInit,
-    Attribute,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ContentChildren,
-    ElementRef,
+import {    
+    Attribute,   
+    Component,    
     EventEmitter,
-    Input,
-    OnChanges,
-    OnDestroy,
+    Input,  
     OnInit,
-    Output,
-    QueryList,
-    Self,
-    SimpleChanges,
-    SkipSelf,
-    ViewEncapsulation,
-    inject
+    Output,   
 } from '@angular/core';
 import {Course} from '../../model/course';
-import {CourseImageComponent} from '../course-image/course-image.component';
 import { CoursesService } from '../../services/courses.service';
+import { NgIf } from '@angular/common';
+import { CourseTitleComponent } from 'src/app/course-title/course-title.component';
+import { CourseImageComponent } from '../course-image/course-image.component';
 
 @Component({
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-    providers: [CoursesService]
+    providers: [CoursesService],
+    standalone: true,
+    imports: [
+        NgIf,
+        CourseTitleComponent,
+        CourseImageComponent
+    ]
 })
 export class CourseCardComponent implements OnInit {
     //courseService = inject(CoursesService)

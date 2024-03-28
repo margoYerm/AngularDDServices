@@ -1,18 +1,25 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, InjectionToken, Injector, OnInit, Optional, inject} from '@angular/core';
+import {Component, Inject,  Injector, OnInit} from '@angular/core';
 import {Course} from './model/course';
 import {CourseCardComponent} from './courses/course-card/course-card.component';
-import {Observable} from 'rxjs';
 import { CoursesService } from './services/courses.service';
-import { HttpClient } from '@angular/common/http';
-import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
+import { AppConfig, CONFIG_TOKEN } from './config';
 import { COURSES } from 'src/db-data';
 import { createCustomElement } from '@angular/elements';
 import { CourseTitleComponent } from './course-title/course-title.component';
+import { CourseImageComponent } from './courses/course-image/course-image.component';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    CourseCardComponent,
+    CourseImageComponent,    
+  ]
 })
 
 export class AppComponent implements OnInit {
@@ -55,5 +62,6 @@ export class AppComponent implements OnInit {
     }
     this.courses[0] = newCourse;*/
     this.courses[1].category = 'ADVANCED';
+    console.log('Edit course was push')
   }  
 }
